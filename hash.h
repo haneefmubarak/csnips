@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 
 // hash library headers
 #include <blake2.h>
@@ -21,17 +22,15 @@ typedef enum {
 	SNIPS_HASH_INVALID_M	= -1,
 	SNIPS_HASH_DEFAULT_M	= 0,
 	SNIPS_HASH_FORCE_M	= 1,
-	SNIPS_HASH_MINLEN_M	= 2,
-	SNIPS_HASH_MAXLEN_M	= 3,
-	SNIPS_HASH_NEARLEN_M	= 4
+	SNIPS_HASH_LEN_M	= 2
 } snips_hash_m_t;
 
 typedef struct {
 	uint8_t *in;	// input byte array
 	uint64_t len;	// length of ^^^^^^
 	snips_hash_h_t hash;	// which hash to use
-	snips_hash_m_t mode;	// which hash selection heuristic to use
 	struct {
+		snips_hash_m_t mode;	// which hash selection heuristic to use
 		uint8_t len;	// preferred output length
 	} prefer;
 } snips_hash_in_t;
