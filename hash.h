@@ -6,7 +6,7 @@
 #include <string.h>
 
 // hash library headers
-#include <blake2.h>
+#include "deps/libb2/src/blake2.h"
 #include <openssl/sha.h>
 #include <openssl/md5.h>
 
